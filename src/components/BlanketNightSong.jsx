@@ -34,27 +34,29 @@ export default function BlanketNightSong({ onBack }) {
     <>
     {/* 🌸 LEFT IMAGES (Desktop only) */}
 <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-8 z-10 pointer-events-none">
-  {["k7.jpg","k8.jpg","k9.jpg"].map((img, i) => (
+  {CONTENT.sideImages.map((img, i) => (
     <img
-      key={i}
-      src={`/images/${img}`}
+      key={`left-${i}`}
+      src={img}
       className="w-32 xl:w-40 opacity-40 animate-[float_8s_ease-in-out_infinite]"
       alt=""
     />
   ))}
 </div>
 
+
 {/* 🌸 RIGHT IMAGES (Desktop only) */}
 <div className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 flex-col gap-8 z-10 pointer-events-none">
-  {["k9.jpg","k8.jpg","k7.jpg"].map((img, i) => (
+  {[...CONTENT.sideImages].reverse().map((img, i) => (
     <img
-      key={i}
-      src={`/images/${img}`}
+      key={`right-${i}`}
+      src={img}
       className="w-32 xl:w-40 opacity-40 animate-[float_9s_ease-in-out_infinite]"
       alt=""
     />
   ))}
 </div>
+
 
 
  <motion.div
@@ -83,17 +85,18 @@ export default function BlanketNightSong({ onBack }) {
     preload="metadata"
     className="w-full rounded-lg sticky top-0 z-30 bg-black/60 backdrop-blur-md"
   >
-    <source src="/audio/कम्बल वाली मीठी रात.mp3" type="audio/mpeg" />
+    <source src={CONTENT.audio} type="audio/mpeg" />
   </audio>
 </div>
 
 
       {/* 🌸 Mobile Top Images */}
 <div className="flex lg:hidden justify-center gap-4 mb-6">
-  <img src="/images/k7.jpg" className="w-20 opacity-40" />
-  <img src="/images/k8.jpg" className="w-24 opacity-50" />
-  <img src="/images/k9.jpg" className="w-20 opacity-40" />
+  {CONTENT.sideImages.slice(0, 3).map((img, i) => (
+    <img key={i} src={img} className="w-20 opacity-40" />
+  ))}
 </div>
+
 
 
       {/* 📝 Lyrics */}
@@ -179,11 +182,17 @@ export default function BlanketNightSong({ onBack }) {
       </div>
 
       {/* 🌸 Mobile Bottom Images */}
-<div className="flex lg:hidden justify-center gap-4 mt-10">
-  <img src="/images/k9.jpg" className="w-20 opacity-40" />
-  <img src="/images/k8.jpg" className="w-24 opacity-50" />
-  <img src="/images/k7.jpg" className="w-20 opacity-40" />
+<div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-8 z-10 pointer-events-none">
+  {CONTENT.sideImages.map((img, i) => (
+    <img
+      key={`left-${i}`}
+      src={img}
+      className="w-32 xl:w-40 opacity-40 animate-[float_8s_ease-in-out_infinite]"
+      alt=""
+    />
+  ))}
 </div>
+
 
 
       {/* ⬅️ Back Button (FIXED) */}

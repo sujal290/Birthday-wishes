@@ -26,37 +26,16 @@ export default function FinalScreen({ onNext }) {
 }
    const downloadMessage = () => {
   const a = document.createElement("a")
-  a.href = "/images/image.png"          
+  a.href = CONTENT.pdf          
   a.download = "Bas-itna-hi.png" 
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
 }
 
+const proposalMessage = CONTENT.message
 
-  const proposalMessage = `Aapki baatein samay se pare lagti hain,
-                          jaise aapse baat sunna hi sukoon ho.
-                          Waqt thodi der ke liye ruk sa jaata hai,
-                          aur dil ko ek alag sa chain mil jaata hai.
-
-                          Aapki muskurahat ek shaant si subah ki tarah hai,
-                          jo bina shor ke din ko roshan kar jaati hai.
-                          Aapka hona hi kaafi lagta hai,
-                          kuch kehne ki zarurat bhi nahi hoti.
-
-                          Main jaanta hoon —
-                          main sirf aapka ek dost hoon,
-                          ek bilkul normal sa dost,
-                          jo shayad aapki zindagi ka koi khaas hissa nahi,
-                          par aapki khushi ke liye hamesha dil se dua karta hai.
-                          kisi vaade ki bhi nahi.
-                          Bas itna hi kaafi hai ki,
-                          jab kabhi aap thak jaayein,
-                          toh aapko pata ho —
-                          kahin ek dost hai,
-                          jo chupchaap aapki muskurahat ke liye khada hai.
-                          `
-
+            
   useEffect(() => {
     if (cardOpen && !typingComplete) {
       let currentIndex = 0
@@ -211,17 +190,7 @@ export default function FinalScreen({ onNext }) {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
 
-                {/* Analyzer Button */}
-                <motion.button
-                  onClick={() => router.push("/analyzer")}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-7 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl flex items-center justify-center"
-                >
-                  <Heart className="w-5 h-5 mr-2 fill-current" />
-                  Ana
-                  <Heart className="w-5 h-5 ml-2 fill-current" />
-                </motion.button>
-
-                {/* Song Button */}
+              {/* Song Button */}
                 <motion.button
                   onClick={() => {
                     fireConfetti()
