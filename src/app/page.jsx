@@ -12,13 +12,12 @@ import BackgroundMusic from "../components/BackgroundMusic"
 import BlanketNightSong from "../components/BlanketNightSong"
 
 
-
-
-
-export default function ProposalSite() {
+export default function ProposalSite({content}) {
   const [currentScreen, setCurrentScreen] = useState("loader")
   const [isLoading, setIsLoading] = useState(true)
   const [fadeBgMusic, setFadeBgMusic] = useState(false)
+  const [lightDust, setLightDust] = useState([])
+
 
 
 
@@ -31,6 +30,17 @@ export default function ProposalSite() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+  setLightDust(
+    Array.from({ length: 35 }).map(() => ({
+      left: Math.random() * 100 + "%",
+      duration: 10 + Math.random() * 20 + "s",
+      delay: Math.random() * 10 + "s",
+    }))
+  )
+}, [])
+
+
   const nextScreen = (screen) => {
     setCurrentScreen(screen)
   }
@@ -41,17 +51,18 @@ export default function ProposalSite() {
 
       
       <div className="light-dust">
-    {Array.from({ length: 35 }).map((_, i) => (
-      <span
-        key={i}
-        style={{
-          left: Math.random() * 100 + "%",
-          animationDuration: 10 + Math.random() * 20 + "s",
-          animationDelay: Math.random() * 10 + "s"
-        }}
-      />
-    ))}
-  </div>
+  {lightDust.map((item, i) => (
+    <span
+      key={i}
+      style={{
+        left: item.left,
+        animationDuration: item.duration,
+        animationDelay: item.delay,
+      }}
+    />
+  ))}
+</div>
+
 
   <div className="heart-rain">
   {Array.from({ length: 25 }).map((_, i) => (

@@ -1,30 +1,18 @@
 export const CONTENT = {
-  occasion: "Birthday", // Birthday | Love | Proposal
+  title: "This is just for you ❤️",
 
-  personName: "Someone Special 💖",
+  message: `Aapki baatein samay se pare lagti hain,
+jaise aapse baat sunna hi sukoon ho...`,
 
-  heroText: "This is just for you...",
-
-  message: `
-Aapki baatein samay se pare lagti hain,
-jaise aapse baat sunna hi sukoon ho.
-
-Aapka hona hi kaafi lagta hai,
-kuch kehne ki zarurat bhi nahi hoti.
-
-Bas itna hi…
-par kaafi hai ❤️
-  `,
-
-  audio: "/audio/song.mp3",
-
-  pdf: "/message.pdf",
-
-  sideImages: [
-    "/images/img1.jpg",
-    "/images/img2.jpg",
-    "/images/img3.jpg",
+  images: [
+    "/images/k7.jpg",
+    "/images/k8.jpg",
+    "/images/k9.jpg"
   ],
 
-  gif: "/gif/jump.gif",
+  song: "/audio/blanket-night.mp3",
+
+  pdf: "/newslot.pdf",
+
+  receiverName: "Happy Birthday 🎂"
 }

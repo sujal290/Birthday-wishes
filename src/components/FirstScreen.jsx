@@ -2,6 +2,8 @@
 
 import { motion } from "motion/react"
 import { Heart } from "lucide-react"
+import { CONTENT } from "../config/content"
+
 
 export default function FirstScreen({ onNext }) {
 

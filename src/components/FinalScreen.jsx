@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Heart } from "lucide-react"
 import { useRouter } from "next/navigation"
 import confetti from "canvas-confetti"
+import { CONTENT } from "../config/content"
 
 export default function FinalScreen({ onNext }) {
   const [cardOpen, setCardOpen] = useState(false)
@@ -16,6 +17,10 @@ export default function FinalScreen({ onNext }) {
   const [showFullMessage, setShowFullMessage] = useState(false)
   const fireConfetti = () => {
   const colors = ["#ff4d6d", "#ff80b5", "#c084fc", "#a855f7"]
+  const proposalMessage = data.message
+const images = data.images
+const song = data.song
+
 
   confetti({
     particleCount: 180,
@@ -26,12 +31,11 @@ export default function FinalScreen({ onNext }) {
 }
    const downloadMessage = () => {
   const a = document.createElement("a")
-  a.href = CONTENT.pdf          
-  a.download = "Bas-itna-hi.png" 
-  document.body.appendChild(a)
+  a.href = CONTENT.pdf
+  a.download = "wish.pdf"
   a.click()
-  document.body.removeChild(a)
 }
+
 
 const proposalMessage = CONTENT.message
 
